@@ -1,0 +1,242 @@
+
+<!-- boiler plate -->
+<!DOCTYPE html>
+<html lang="en">
+    <!-- heading of page -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goals</title>
+    
+</head>
+<body>
+    
+    <!-- <script src="hey-you\src\components\todo-components\wellnessGoals.html"></script> -->
+    <!-- basic structure of todo page -->
+    <div id = "goalsHeader" class = header>
+        <h1>Wellness Goals</h1>
+    </div>
+
+    <!-- current -->
+    <p id="CurrentDate"></p>
+
+    <!-- able to add more than hardcoded goals -->
+    <div class ="add-container">
+        <!-- creating button thru form  -->
+        <form class = "addButton" >
+            <input type = text id = textBox size = 90% placeholder="Add a goal here">
+            <input type = 'submit' value = "ADD" id = addbtn>
+        </form>
+        <!-- adding user-specified goal to lists -->
+        <script>
+            var userGoal = document.getElementById('textBox').value;
+            var li = document.createElement('li');
+            if (userGoal == '' && document.getElementById('addbtn').onclick == true){
+                alert("Invalid Text");
+            } else {
+                document.getElementById('goalList').appendChild(userGoal);
+            }
+        </script>
+    </div>
+ 
+    <div class = "date-container" > 
+        <script>
+            var today = new Date();
+            var date= today.toLocaleString('default', { month: 'long' })+ " "+ today.getDate()+  ", " +today.getFullYear();
+            document.getElementById('CurrentDate').innerHTML = date;
+        </script>
+    </div>
+        
+        <!-- <input type="date" id = "CurrentDate" name = "Date">
+        <div class = date>
+            <p>Date</p>
+        </div> -->
+        
+        <ul id= "goalList" class = goalList >
+            <li>Workout</li>
+            <li>Drink Water</li>
+            <li>Eat breakfast</li>
+            <li>Meditation</li>
+            <li>Sleep on Time</li>
+            <li>Read a Book</li>
+
+        </ul>
+
+    <!-- creating the navbar -->
+    <div class = "navbar-container">
+        
+        <nav class="navbar">
+        </nav>
+        <div class="nav-menu">
+            <a href="#" class = ""nav-menu-link><i class = "left"></i><img src="arrow.png" width="70px" height = "45px" ></a>
+            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class=""nav-menu-link><i class = "house"></i><img src="house.png" width="50px" height = "50px" ></a>
+            <a href="hey-you\src\components\todo-components\wellnessGoals.html" class=""nav-menu-link><i class = "schedule"></i><img src="book.png" width="50px" height = "45px"></a>
+            <a href="https://www.google.com/search?q=gingerbread+man&rlz=1C1SQJL_enCA926CA926&ei=K5aAYtDJJsSmtQavnpDABA&ved=0ahUKEwiQi62b6eD3AhVEU80KHS8PBEgQ4dUDCA4&uact=5&oq=gingerbread+man&gs_lcp=Cgdnd3Mtd2l6EANKBAhBGABKBAhGGABQAFgAYAxoAHABeACAAQCIAQCSAQCYAQDAAQE&sclient=gws-wiz" class=""nav-menu-link><i class = "suggested"></i><img src="man.png" width="50px" height = "45px"></a>
+            <a href="#" class = ""nav-menu-link><i class = "right"></i><img src="rightArrow.png" width="70px" height = "45px"  ></a>
+        </div>
+    </div>
+
+</body>
+</html>
+
+<style>
+head{
+    background-color: antiquewhite;
+}
+body{
+    background-color: white;
+  }
+
+  /* heading */
+.header{
+    color: #2a9696;
+    text-align: center;
+    padding: 12px 40px 12px 40px;
+    
+    
+}
+
+/* removing margins and padding from the list */
+.goalList {
+    margin: 0;
+    padding: 0;
+}
+
+/* getting rid of everything */
+ul{
+    margin:0;
+    padding:0;
+}
+*{
+    box-sizing: border-box;
+    box-shadow: 5px;
+}
+
+/* styling bullet points */
+ul li{
+    position: relative;
+    padding: 12px 40px 12px 40px;
+    list-style-type: none;
+    font-size:18px;
+    background:white;
+    text-align: center;
+    
+}
+
+/* changes colour awhen hovering over it */
+ul li:hover{
+    background: #2a9696;
+}
+
+/* strikethorugh after clicking */
+ul li.checked{
+   border-top: 1px solid gray;
+   /* display:block; */
+   background-color:#7d9191 ;
+   text-decoration: line-through;
+   
+}
+
+ul li.checked::before {
+  content: '';
+  position: relative;
+} 
+
+
+
+#CurrentDate{
+    margin:0;
+    padding:0;
+    /* height: 30px; */
+    /* object-position: 50px; */
+    text-align: center;
+    /* color:rgb(63, 152, 168); */
+    color: black;
+    font-size: 25px;
+    background-color: rgb(187, 179, 179);
+    /* position: relative;
+    padding: 0px 0px 0px 0px; */
+    /* border: 10px; */
+}
+
+.add-container{
+    /* border: 1px black; */
+    margin: 10px;
+    /* padding: 0px; */
+    /* width:100%;
+    height:40px; */
+} 
+
+/* formating add form */
+input[type=text]{
+    width:79%;
+    padding: 12px 20px;
+    margin: 8px 0p;
+    box-sizing:content-box;
+}
+
+input[type=text]:focus{
+    border: #7d9191;
+}
+input[type=submit]{
+    width:85px;
+    height: 42px;
+    /* box-sizing: border-box; */
+}
+
+
+/* #addbtn:hover{
+    background-color: #b4dddd;
+} */
+
+
+/* .navbar{
+    position:relative;
+    top:50%; */
+    /* transform: translateY(-50%); */
+
+/* } */
+
+.nav-menu{
+    /* make a table with one row having each of the icons */
+    display:block;
+    margin: 0;
+    padding: 0;
+    background-color: #2a9696;
+    
+    height: 10%;
+    bottom: 0px;
+    width: 98.5%;
+    position: fixed;
+}
+.nav-menu-link:nth-child(1){
+    left:10%;
+
+}
+.nav-menu-link:nth-child(2){
+    left:50%;
+
+}
+.nav-menu-link:nth-child(3){
+    position:relative;
+    left:100px;
+    
+}
+
+.nav-menu-link i {
+    font-size:41rem;
+    color: white;
+}
+
+</style>
+
+<script>
+    // strike through when clicking on a list item
+    var list = document.querySelector('ul');
+    list.addEventListener('click', function(ev) {
+        if (ev.target.tagName === 'LI') {
+            ev.target.classList.toggle('checked');
+        }
+    }, false);       
+</script>
